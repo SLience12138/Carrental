@@ -1,0 +1,26 @@
+package org.example.controller;
+
+import jakarta.annotation.Resource;
+import org.example.service.UserService;
+import org.example.util.ResultJson;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+
+    @Resource
+    private UserService userService;
+
+    @PostMapping("/saveUser")
+    public ResultJson saveUser(@RequestBody Map<String, String> map) {
+        return userService.saveUser(map);
+    }
+
+    @PostMapping("/login")
+    public ResultJson login(@RequestBody Map<String, String> map) {
+        return userService.login(map);
+    }
+}
