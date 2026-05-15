@@ -1,1 +1,12 @@
+package org.example.mappers;
 
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
+
+import java.util.Map;
+@Mapper
+@Repository
+public interface UserMapper {
+    int saveUser(Map<String, String> map);
+    Map<String, Object> login(Map<String, String> map); // 确保返回类型正确
+}
